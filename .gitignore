@@ -1,0 +1,17 @@
+/dist
+/temp
+/.pnp
+.pnp.js
+/coverage
+/content
+/.json-layer
+/out/
+.DS_Store
+*.pem
+json-layer.config.ts
+schema.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env*.local
