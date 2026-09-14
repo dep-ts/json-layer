@@ -1,5 +1,5 @@
-import { slug } from '@dep/slug';
 import { basename } from '@dep/path';
+import { slug } from '@dep/slug';
 
 export type ImportsMap = Record<string, Record<string, string>>;
 
@@ -16,7 +16,8 @@ export async function generateJsonImports(
 
     for (const [name, path] of Object.entries(imports)) {
       lines.push(`import ${name} from '${path}' with { type: 'json' };`);
-      entries.push(`${basename(path).replace('.json', '')}: ${name}`);
+      const key = slug(basename(path).replace('.json', ''), { separator: '' });
+      entries.push(`${key}: ${name}`);
     }
 
     exports.push(`export const ${groupId} = { ${entries.join(', ')} };`);
